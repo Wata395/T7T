@@ -14,21 +14,15 @@ library(plotly)
 library(readr)
 library(readxl)
 library(excel.link)
+source("dataExtraction.R")
 # -------------------------
 
-Dtframe <- data.frame(xl.read.file("./data/T&T Consolidated PCR Report8.xlsx", xl.sheet =  "Raw_data"))
-
-#Loading Data From .CSV
-DtFromForm <- data.frame(read.csv("./data/F_Form1-115.csv"))
-
-
-
-
-
+#Loading the Data Frame to the local Variable
+DtFromForm <- DtFrame
 
 
 ## 1-Delete blanks from ID Column
-DtFromForm <- DtFromForm[!(DtFromForm$ID == "" | is.na(DtFromForm$ID)), ]
+DtFromForm <- DtFromForm[!(DtFromForm$id == "" | is.na(DtFromForm$id)), ]
 
 ## 2-North American Accounts
 
@@ -57,7 +51,7 @@ DtFromForm <- DtFromForm[!(DtFromForm$ID == "" | is.na(DtFromForm$ID)), ]
 
 #Exploratory Data Analisys
 ColuNames <- colnames(DtFromForm)
-NumberOfRows <- length(DtFromForm$ID) #3659
+NumberOfRows <- length(DtFromForm$ID) #X
 Sectors <- sort(unique(DtFromForm$"Sector."))
 Accounts <- sort(unique(DtFromForm$"Account.Name."))
 
