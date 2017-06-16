@@ -32,16 +32,19 @@ class(this.content) #it's a list
 
 length(this.content) #it's a large list
 
-setnewContent <- this.content[[4]] #the list
+this.content[[4]] #the list
+
+this.content$items
+
+class(this.content$items)
+
+DtFrame <- this.content$items
 
 
-# do the extraction and assembly
-fmDataDF<-data.frame(sapply(1:22, grabInfo), stringsAsFactors=FALSE)
-##
 
 
 
-class(thiscontentdf) #a single data frame
+
 
 
 
